@@ -41,7 +41,7 @@ export const signinController: RequestHandler = async (
     if (!passwordIsValid)
       return res.json({ message: "Password is incorrect." });
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET || "zaaa", {
+    const token = jwt.sign({ id: user.id }, `${process.env.JWT_SECRET}`, {
       expiresIn: "365d", // 365 day
     });
 
